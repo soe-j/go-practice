@@ -2,37 +2,17 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+
+	"github.com/soe-j/go-practice/car/models"
 )
 
-// ICar 車インタフェース
-type ICar interface {
-	run(int) string
-	stop() string
-}
-
-// Car 車構造
-type Car struct {
-	name  string
-	speed int
-}
-
-func (car *Car) run(speed int) string {
-	car.speed = speed
-	return strconv.Itoa(speed) + "kmで走行"
-}
-func (car *Car) stop() string {
-	car.speed = 0
-	return "停止"
-}
-
 func main() {
-	myCar := &Car{name: "マイカー", speed: 0}
-	fmt.Println(myCar.name, myCar.stop())
+	myCar := &models.Car{Name: "マイカー"}
+	fmt.Println(myCar.Name, myCar.Run(50))
+	fmt.Println(myCar.Name, myCar.Stop())
 
-	aisha := &Car{name: "愛車", speed: 0}
-	fmt.Println(aisha.name, aisha.run(30))
-	fmt.Println(aisha.name, aisha.run(100))
-	fmt.Println(myCar.name, myCar.run(50))
-	fmt.Println(aisha.name, aisha.stop())
+	aisha := &models.Car{Name: "愛車"}
+	fmt.Println(aisha.Name, aisha.Run(30))
+	fmt.Println(aisha.Name, aisha.Run(100))
+	fmt.Println(aisha.Name, aisha.Stop())
 }
