@@ -2,8 +2,8 @@ package models
 
 import "strconv"
 
-// ICar 車インタフェース
-type ICar interface {
+// Car 車インタフェース
+type Car interface {
 	GetName() string
 	Run(int) string
 	Stop() string
@@ -16,7 +16,7 @@ type car struct {
 }
 
 // NewCar 新しい車を作る
-func NewCar(name string) ICar {
+func NewCar(name string) Car {
 	return &car{name: name, speed: 0}
 }
 
