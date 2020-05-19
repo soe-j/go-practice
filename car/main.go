@@ -7,12 +7,12 @@ import (
 )
 
 func main() {
-	myCar := &models.Car{Name: "マイカー"}
-	fmt.Println(myCar.Name, myCar.Run(50))
-	fmt.Println(myCar.Name, myCar.Stop())
+	myCar := models.NewCar("マイカー")
+	fmt.Println(myCar.GetName(), myCar.Run(50))
+	fmt.Println(myCar.GetName(), myCar.Stop())
 
-	aisha := &models.Car{Name: "愛車"}
-	fmt.Println(aisha.Name, aisha.Run(30))
-	fmt.Println(aisha.Name, aisha.Run(100))
-	fmt.Println(aisha.Name, aisha.Stop())
+	aisha := models.NewCar("愛車")
+	fmt.Println(aisha.GetName(), aisha.Run(30))
+	fmt.Println(aisha.GetName(), aisha.Run(100))
+	fmt.Println(aisha.GetName(), aisha.Stop())
 }

@@ -4,14 +4,25 @@ import "strconv"
 
 // ICar 車インタフェース
 type ICar interface {
-	run(int) string
-	stop() string
+	GetName() string
+	Run(int) string
+	Stop() string
 }
 
 // Car 車構造
 type Car struct {
-	Name  string
+	name  string
 	speed int
+}
+
+// NewCar 新しい車を作る
+func NewCar(name string) ICar {
+	return &Car{name: name, speed: 0}
+}
+
+// GetName 名前を取得する
+func (car *Car) GetName() string {
+	return car.name
 }
 
 // Run 走る
